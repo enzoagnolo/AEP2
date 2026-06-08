@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIGIMarket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">DIGI<span>Market</span></div>
+    <nav>
+      <a href="#login">Login</a>
+      <a href="#assinatura">Assinatura</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#estruturas">Estruturas</a>
+      <a href="#requisitos">Requisitos</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="assinatura" class="hero">
+      <span class="badge">Projeto academico</span>
+      <h1>DIGIMarket</h1>
+      <p>Mercado digital para clientes cadastrados. Para realizar compras, o usuario precisa fazer login e ter um plano ativo.</p>
+
+      <div id="login" class="plano">
+        <h2>Login do Cliente</h2>
+        <p>Entre com seus dados para usar o mercado.</p>
+
+        <div class="form-login">
+          <input id="cliente-nome" type="text" placeholder="Nome do cliente">
+          <input id="cliente-email" type="email" placeholder="E-mail do cliente">
+          <button id="btn-login" onclick="fazerLogin()">Entrar</button>
+          <button id="btn-sair" onclick="sairLogin()">Sair</button>
+        </div>
+
+        <p id="status-login" class="status-assinatura">Cliente nao logado.</p>
+      </div>
+
+      <div class="plano">
+        <h2>Plano Cliente DIGIMarket</h2>
+        <p><strong>R$ 19,90 / mes</strong></p>
+        <p>Acesso ao catalogo, carrinho de compras, pedidos e acompanhamento da entrega.</p>
+        <p id="status-assinatura" class="status-assinatura">Usuario sem assinatura ativa.</p>
+        <button id="btn-assinar" onclick="assinarPlano()">Assinar plano</button>
+      </div>
+
+      <a class="btn" href="#estruturas">Ir para compras</a>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre o Sistema</h2>
+      <p>O projeto mostra como estruturas de dados podem ser usadas em um sistema de compras online.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Lista</h3>
+          <p>Representa o carrinho de compras.</p>
+        </div>
+        <div class="card">
+          <h3>Fila</h3>
+          <p>Representa os pedidos aguardando processamento.</p>
+        </div>
+        <div class="card">
+          <h3>Pilha</h3>
+          <p>Representa o historico das ultimas acoes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="estruturas">
+      <h2>Estruturas de Dados</h2>
+      <p>Clique nas abas para testar cada parte.</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="abrirTab('tab-carrinho', this)">Carrinho</button>
+        <button class="tab-btn" onclick="abrirTab('tab-pedidos', this)">Pedidos</button>
+        <button class="tab-btn" onclick="abrirTab('tab-historico', this)">Historico</button>
+        <button class="tab-btn" onclick="abrirTab('tab-status', this)">Status</button>
+      </div>
+
+      <div id="tab-carrinho" class="tab-content active">
+        <div class="box">
+          <h3>Carrinho de Compras - Lista</h3>
+
+          <div class="controles">
+            <input id="pesquisa-produto" type="text" placeholder="Pesquisar produto..." oninput="renderProdutos()">
+            <button onclick="limparPesquisa()">Limpar pesquisa</button>
+          </div>
+
+          <div id="produtos-grid" class="produto-grid"></div>
+
+          <div class="controles">
+            <button id="btn-finalizar" onclick="finalizarCompra()">Avançar compra</button>
+            <button onclick="listaLimpar()">Limpar carrinho</button>
+          </div>
+
+          <div id="lista-visual" class="visual"></div>
+          <strong id="lista-total"></strong>
+          <pre id="lista-log" class="log"></pre>
+        </div>
+      </div>
+
+      <div id="tab-pedidos" class="tab-content">
+        <div class="box">
+          <h3>Fila de Pedidos</h3>
+          <div class="controles">
+            <input id="fila-input" type="text" placeholder="Ex: Pedido do Joao">
+            <button onclick="filaEnqueue()">Adicionar pedido</button>
+            <button onclick="filaDequeue()">Processar pedido</button>
+          </div>
+
+          <div id="fila-visual" class="visual"></div>
+
+          <div class="duas-colunas">
+            <div>
+              <h4>Aguardando</h4>
+              <div id="fila-lista"></div>
+            </div>
+            <div>
+              <h4>Processados</h4>
+              <div id="fila-processados"></div>
+            </div>
+          </div>
+
+          <pre id="fila-log" class="log"></pre>
+        </div>
+      </div>
+
+      <div id="tab-historico" class="tab-content">
+        <div class="box">
+          <h3>Historico de Acoes - Pilha</h3>
+          <div class="controles">
+            <input id="pilha-input" type="text" placeholder="Digite uma acao">
+            <button onclick="pilhaPush()">Registrar</button>
+            <button onclick="pilhaPop()">Desfazer</button>
+            <button onclick="pilhaPeek()">Ver topo</button>
+          </div>
+
+          <p id="pilha-topo-label"></p>
+          <p>Total na pilha: <strong id="pilha-size">0</strong></p>
+          <div id="pilha-visual" class="visual pilha"></div>
+          <pre id="pilha-log" class="log"></pre>
+        </div>
+      </div>
+
+      <div id="tab-status" class="tab-content">
+        <div class="box">
+          <h3>Status do Pedido</h3>
+          <div class="controles">
+            <button onclick="avancarEstado()">Avancar estado</button>
+            <button onclick="cancelarPedido()">Cancelar pedido</button>
+            <button onclick="resetarPedido()">Novo pedido</button>
+          </div>
+          <div id="estado-atual" class="visual"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="requisitos">
+      <h2>Requisitos do Sistema</h2>
+
+      <div class="duas-colunas">
+        <div class="box">
+          <h3>Requisitos Funcionais</h3>
+          <ul>
+            <li>Cadastro e login de clientes.</li>
+            <li>Catalogo de produtos.</li>
+            <li>Carrinho de compras.</li>
+            <li>Fila de pedidos.</li>
+            <li>Acompanhamento do status do pedido.</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3>Regras e Requisitos Nao Funcionais</h3>
+          <ul>
+            <li>Interface simples e responsiva.</li>
+            <li>Pedido minimo de R$ 30,00.</li>
+            <li>Pedido pode ser cancelado antes da entrega.</li>
+            <li>Sistema deve responder rapidamente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>DIGIMarket</strong> - Projeto Academico AEP 2026.1<br>
+    UniCesumar - ADS e ESOFT - 3 Semestre
+  </footer>
+
+  <script src="java.js"></script>
+</body>
+</html>

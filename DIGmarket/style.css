@@ -1,0 +1,289 @@
+:root {
+  --verde: #1a7a4a;
+  --verde-escuro: #0f4d2e;
+  --verde-claro: #2ecc71;
+  --fundo: #f4f6f3;
+  --texto: #1c2b1e;
+  --borda: #d0dbd2;
+  --branco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  align-items: center;
+  background: var(--verde-escuro);
+  color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 40px;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: var(--verde-claro);
+}
+
+nav a {
+  color: var(--branco);
+  margin-left: 18px;
+  text-decoration: none;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+  color: var(--branco);
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin: 10px 0;
+}
+
+.badge,
+.btn {
+  background: var(--verde-claro);
+  border-radius: 6px;
+  color: var(--verde-escuro);
+  display: inline-block;
+  font-weight: bold;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.plano {
+  background: var(--branco);
+  border-radius: 8px;
+  color: var(--texto);
+  margin: 25px auto 0;
+  max-width: 460px;
+  padding: 22px;
+}
+
+.plano h2 {
+  color: var(--verde-escuro);
+}
+
+.form-login {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.form-login input {
+  min-width: 180px;
+}
+
+.status-assinatura {
+  background: #fff1d6;
+  border-radius: 6px;
+  color: #7a4a00;
+  font-weight: bold;
+  margin: 14px 0;
+  padding: 10px;
+}
+
+.status-assinatura.ativo {
+  background: #dff5e8;
+  color: var(--verde-escuro);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+section {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 40px 20px;
+}
+
+h2 {
+  color: var(--verde-escuro);
+  margin-bottom: 8px;
+}
+
+h3,
+h4 {
+  margin-bottom: 10px;
+}
+
+.cards,
+.duas-colunas {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 20px;
+}
+
+.card,
+.box {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.tabs,
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+button,
+input {
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  font: inherit;
+  padding: 10px 12px;
+}
+
+button {
+  background: var(--verde);
+  color: var(--branco);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover,
+.tab-btn.active {
+  background: var(--verde-escuro);
+}
+
+input {
+  min-width: 220px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.produto-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin: 20px 0;
+}
+
+.produto,
+.item {
+  background: var(--fundo);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.produto {
+  cursor: pointer;
+  text-align: center;
+}
+
+.produto button {
+  margin-top: 8px;
+  padding: 8px;
+}
+
+.item-carrinho {
+  align-items: center;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 10px;
+}
+
+.item-carrinho button {
+  background: #b83232;
+  padding: 8px 10px;
+}
+
+.visual {
+  background: #eef2ed;
+  border-radius: 6px;
+  margin: 12px 0;
+  min-height: 55px;
+  padding: 12px;
+}
+
+.pilha {
+  display: flex;
+  flex-direction: column;
+}
+
+.log {
+  background: #1c2b1e;
+  border-radius: 6px;
+  color: #91f5b5;
+  font-size: 13px;
+  margin-top: 12px;
+  max-height: 120px;
+  overflow: auto;
+  padding: 12px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  margin-top: 30px;
+  padding: 25px;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  nav a {
+    margin: 0 6px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}
